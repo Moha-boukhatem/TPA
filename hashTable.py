@@ -9,11 +9,12 @@ class hashTable :
 
         nom=nom.lower()
         hash = hash_func(nom)
-        
+        a = False
         value = []
         value.append(nom)
         value.append(matricule)
         i = 0
+
         while i < 50 :
             if self.tab[hash] is None :
                 self.tab.insert(hash,value)
@@ -22,6 +23,7 @@ class hashTable :
             hash+=1
             hash = hash % self.size
             i += 1
+
         if a != True :
             print("aucun espace disponible pour ",nom," avec matricule ",matricule)
         else : print("bien enregistrer pour ",nom," avec matricule ",matricule)
@@ -46,7 +48,6 @@ class hashTable :
                 if nb > 1 : 
                     break 
 
-
         if nb == 0 :
             print("indisponible")
 
@@ -60,6 +61,7 @@ class hashTable :
             print("collision")
 
 def hash_func(nom):
+
     somme = 0
     for i in nom :
         somme += ord(i) 
@@ -72,6 +74,9 @@ table.insert_tab("mohamed",12)
 table.insert_tab("f",12)
 table.insert_tab("B",31)
 table.insert_tab("f",1)
+table.insert_tab("amine",4)
+
+
 
 table.print_table()
-table.print_element("mohamed")
+table.print_element("f")
